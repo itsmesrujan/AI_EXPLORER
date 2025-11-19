@@ -10,10 +10,10 @@ class Sidebar(QWidget):
         concepts = [
             "Linear Regression",
             "Classification",
-            # [TODO] Enable these modules after fixing dependencies
-            # "Neural Network",
-            # "NLP Sentiment",
-            "Computer Vision Edges"
+            "Neural Network",
+            "NLP Sentiment",
+            "Computer Vision Edges",
+            "K-Means Clustering"
         ]
         for c in concepts:
             button = QPushButton(c)
