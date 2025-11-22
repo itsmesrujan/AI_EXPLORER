@@ -1,4 +1,21 @@
 CONCEPT_INFO = {
+    "Concepts Overview": {
+        "title": "AI Concepts Overview",
+        "description": "This application provides interactive demonstrations of various AI concepts including Linear Regression, Classification, Neural Networks, NLP Sentiment Analysis, Computer Vision Edge Detection, and K-Means Clustering.",
+        "how_it_works": [
+            "Select a concept from the sidebar.",
+            "Read the description and how-it-works section.",
+            "Click 'Run Demo' to see an interactive demonstration.",
+        ],
+        "examples": [
+            "Linear Regression: Predicting house prices.",
+            "Classification: Spam email detection.",
+            "Neural Networks: Image recognition tasks.",
+            "NLP Sentiment: Analyzing customer reviews.",
+            "Computer Vision Edges: Detecting edges in images.",
+            "K-Means Clustering: Market segmentation.",
+        ]
+    },
     "Linear Regression": {
         "title": "Linear Regression",
         "description": "In statistics, linear regression is a linear approach to modeling the relationship between a dependent variable and one or more independent variables.",
@@ -86,3 +103,128 @@ CONCEPT_INFO = {
         ]
     },
 }
+
+# Additional AI Concepts
+# [TODO] Review the correctness of these entries.
+CONCEPT_INFO.update({
+
+    "Generative AI": {
+        "title": "Generative AI",
+        "description": "Generative AI creates new content such as text, images, or music by learning patterns from existing data.",
+        "how_it_works": [
+            "Trained on large datasets to learn patterns.",
+            "Uses deep learning models like GANs, VAEs, and Transformers.",
+            "Generates new content through sampling and decoding."
+        ],
+        "examples": [
+            "ChatGPT generating text.",
+            "Stable Diffusion creating images.",
+            "Music or code generation using AI."
+        ]
+    },
+
+    "Reinforcement Learning": {
+        "title": "Reinforcement Learning",
+        "description": "Reinforcement Learning is concerned with how an intelligent agent should take actions in a dynamic environment to maximize cumulative reward.",
+        "how_it_works": [
+            "Agent interacts with an environment.",
+            "Receives rewards or penalties.",
+            "Learns optimal policy through trial and error."
+        ],
+        "examples": [
+            "Game-playing AI like AlphaGo.",
+            "Robotics navigation.",
+            "ATM cash dispensing optimization."
+        ]
+    },
+
+    "Genetic Algorithms": {
+        "title": "Genetic Algorithms",
+        "description": "Genetic Algorithms are inspired by biological evolution to optimize complex problems.",
+        "how_it_works": [
+            "Create population of solutions.",
+            "Use crossover and mutation to evolve.",
+            "Select best individuals over generations."
+        ],
+        "examples": [
+            "Traveling salesman optimization.",
+            "Automated design generation.",
+            "Feature selection in ML."
+        ]
+    },
+
+    "Search & Planning": {
+        "title": "Search and Planning",
+        "description": "AI uses search to explore possible actions and planning to find optimal paths or strategies.",
+        "how_it_works": [
+            "Uses algorithms like A*, BFS, DFS.",
+            "Builds decision trees or state graphs.",
+            "Evaluates cost and chooses best path."
+        ],
+        "examples": [
+            "Maze solving.",
+            "Robot delivery route planning.",
+            "Chess move prediction."
+        ]
+    },
+
+    "Knowledge Representation": {
+        "title": "Knowledge Representation",
+        "description": "AI systems represent facts, rules, and relationships to reason and make decisions.",
+        "how_it_works": [
+            "Uses logic, graphs, or ontologies.",
+            "Applies inference and reasoning.",
+            "Derives new facts from known knowledge."
+        ],
+        "examples": [
+            "Medical diagnosis expert systems.",
+            "Legal reasoning systems.",
+            "Knowledge graphs (Google Knowledge Graph)."
+        ]
+    },
+
+    "Expert Systems": {
+        "title": "Expert Systems",
+        "description": "Expert systems simulate human experts using rules and knowledge inference.",
+        "how_it_works": [
+            "Define knowledge rules and facts.",
+            "Use rule engines to evaluate input.",
+            "Provide recommendations based on logic."
+        ],
+        "examples": [
+            "Medical diagnostic systems.",
+            "Loan approval systems.",
+            "Troubleshooting assistants."
+        ]
+    },
+
+    "Explainable AI": {
+        "title": "Explainable AI",
+        "description": "Explains how ML models make predictions, making them transparent and trustworthy.",
+        "how_it_works": [
+            "Analyzes model features and decisions.",
+            "Uses methods like SHAP or LIME.",
+            "Shows importance and effect of features."
+        ],
+        "examples": [
+            "Explaining credit risk prediction.",
+            "Bias detection in healthcare models.",
+            "AI fairness audits."
+        ]
+    },
+
+    "Robotics and Perception": {
+        "title": "Robotics and AI Perception",
+        "description": "Robotics combines AI with physical sensors to understand and move in real environments.",
+        "how_it_works": [
+            "Uses computer vision and LIDAR for perception.",
+            "Plans actions using reinforcement learning or planning.",
+            "Executes motions through control algorithms."
+        ],
+        "examples": [
+            "Self-driving cars.",
+            "Warehouse robots.",
+            "Delivery drones."
+        ]
+    },
+})

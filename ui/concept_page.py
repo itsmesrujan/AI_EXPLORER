@@ -30,8 +30,9 @@ class ConceptPage(QWidget):
         for ex in concept_data["examples"]:
             ex_item = QLabel(f"• {ex}")
             layout.addWidget(ex_item)
-        # Run Demo Button
-        run_btn = QPushButton("Run Demo")
-        run_btn.setStyleSheet("font-size: 16px; padding: 10px;")
-        run_btn.clicked.connect(lambda: self.run_demo.emit(concept_data["title"]))
-        layout.addWidget(run_btn)
+        if self.data["title"] != "AI Concepts Overview":
+            # Run Demo Button
+            run_btn = QPushButton("Run Demo")
+            run_btn.setStyleSheet("font-size: 16px; padding: 10px;")
+            run_btn.clicked.connect(lambda: self.run_demo.emit(concept_data["title"]))
+            layout.addWidget(run_btn)

@@ -15,27 +15,28 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("AI Concepts Explorer")
         self.setMinimumSize(1000, 600)
-        layout = QHBoxLayout()
-        container = QWidget()
-        container.setLayout(layout)
-        self.setCentralWidget(container)
-        # Sidebar
-        self.sidebar = Sidebar()
-        layout.addWidget(self.sidebar)
-        # Default module
-        self.demo_area = LinearRegressionDemo()
-        layout.addWidget(self.demo_area)
-        # Connect sidebar clicks
+        # Create the central container widget
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+        # Horizontal layout: sidebar (left) + content/demo (right)
+        layout = QHBoxLayout(central_widget)
+        # Sidebar setup
+        self.sidebar = Sidebar(default_selection="Concepts Overview")
+        self.sidebar.setMaximumWidth(central_widget.width() * 0.5)
         self.sidebar.selection_changed.connect(self.load_module)
+        layout.addWidget(self.sidebar, stretch=1)
+        # DEFAULT VIEW: Load ConceptPage at startup
+        self.visual_area = ConceptPage(CONCEPT_INFO['Concepts Overview'])
+        layout.addWidget(self.visual_area)
 
     def load_module(self, module_name):
         # Load concept page
         concept_page = ConceptPage(CONCEPT_INFO[module_name])
         concept_page.run_demo.connect(self.launch_demo)
         # Replace current widget
-        self.demo_area.setParent(None)
-        self.demo_area = concept_page
-        self.centralWidget().layout().addWidget(self.demo_area)
+        self.visual_area.setParent(None)
+        self.visual_area = concept_page
+        self.centralWidget().layout().addWidget(self.visual_area)
 
     def launch_demo(self, module_name):
         if module_name == "Linear Regression":
@@ -52,9 +53,9 @@ class MainWindow(QMainWindow):
             new_widget = KMeansDemo()
         else:
             return
-        self.demo_area.setParent(None)
-        self.demo_area = new_widget
-        self.centralWidget().layout().addWidget(self.demo_area)
+        self.visual_area.setParent(None)
+        self.visual_area = new_widget
+        self.centralWidget().layout().addWidget(self.visual_area)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

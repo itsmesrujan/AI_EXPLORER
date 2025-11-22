@@ -8,3 +8,9 @@
 - SSL verification temporary issue fix.
 - K-means clustering update
 - README file improvements.
+
+## [0.3.0] - 22-NOV-2025
+- App default widget segregation
+- Visual area naming convention update
+- More AI concepts inclusion in concepts page
+- Concepts overview section introduction
