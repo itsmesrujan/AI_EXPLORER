@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
+import ssl
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
@@ -6,6 +7,19 @@ import nltk
 try:
     nltk.data.find('sentiment/vader_lexicon')
 except:
+    '''
+     In certain environments, SSL certificate verification may fail,
+     preventing nltk from downloading resources. The following code
+     creates an unverified SSL context to bypass this issue.
+     But this is generally not recommended for production code due to security
+     risks.
+    '''
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
     nltk.download('vader_lexicon')
 
 class NLPSentimentDemo(QWidget):
