@@ -24,6 +24,9 @@ _Supporting packages(so far):_
 |   torch           | Supports deep neural networks                                 | `pip3 install torch`          |
 |   nltk            | Natural Language Toolkit: for natural language processing     | `pip3 install nltk`           |
 |   cv2             | Simplifies computer vision tasks                              | `pip3 install cv`             |
+|   torch           | Supports deep neural networks and tensor computation          | `pip3 install torch`          |
+|   transformers    | Acts as the model-definition framework                        | `pip3 install transformers`   |
+|   pytest          | Supports unit testing                                         | `pip3 install pytest`         |
 
 For more information on packages, refer to the link below.
 https://pypi.org/

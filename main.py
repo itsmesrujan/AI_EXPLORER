@@ -9,6 +9,7 @@ from modules.neural_network_demo import NeuralNetworkDemo
 from modules.nlp_sentiment_demo import NLPSentimentDemo
 from modules.vision_edge_detection_demo import VisionEdgeDetectionDemo
 from modules.kmeans_demo import KMeansDemo
+from modules.generative_ai.generative_ai_page import GenerativeAIPage
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -51,6 +52,8 @@ class MainWindow(QMainWindow):
             new_widget = VisionEdgeDetectionDemo()
         elif module_name == "K-Means Clustering":
             new_widget = KMeansDemo()
+        elif module_name == "Generative AI":
+            new_widget = GenerativeAIPage()
         else:
             return
         self.visual_area.setParent(None)

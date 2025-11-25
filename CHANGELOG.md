@@ -14,3 +14,8 @@
 - Visual area naming convention update
 - More AI concepts inclusion in concepts page
 - Concepts overview section introduction
+
+## [0.4.0] - 25-NOV-2025
+- Generative AI update
+- Python unittest framework update
+- Known Issue: Failing when we run all tests at a time
