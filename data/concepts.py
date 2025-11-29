@@ -14,6 +14,7 @@ CONCEPT_INFO = {
             "NLP Sentiment: Analyzing customer reviews.",
             "Computer Vision Edges: Detecting edges in images.",
             "K-Means Clustering: Market segmentation.",
+            "Generative AI: Text generation."
         ]
     },
     "Linear Regression": {
@@ -50,7 +51,7 @@ CONCEPT_INFO = {
         "how_it_works": [
             "Inputs move through layers of neurons.",
             "Activation functions introduce nonlinearity.",
-            "Weights adjust using backpropagation.",
+            "Weights adjust using back propagation.",
         ],
         "examples": [
             "Image recognition",

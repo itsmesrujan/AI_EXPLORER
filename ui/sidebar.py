@@ -14,7 +14,8 @@ class Sidebar(QWidget):
             "Neural Network",
             "NLP Sentiment",
             "Computer Vision Edges",
-            "K-Means Clustering"
+            "K-Means Clustering",
+            "Generative AI"
         ]
         for c in concepts:
             button = QPushButton(c)

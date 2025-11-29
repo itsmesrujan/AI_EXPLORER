@@ -3,12 +3,13 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
 from ui.sidebar import Sidebar
 from ui.concept_page import ConceptPage
 from data.concepts import CONCEPT_INFO
-from modules.linear_regression_demo import LinearRegressionDemo
-from modules.classification_demo import ClassificationDemo
-from modules.neural_network_demo import NeuralNetworkDemo
-from modules.nlp_sentiment_demo import NLPSentimentDemo
-from modules.vision_edge_detection_demo import VisionEdgeDetectionDemo
-from modules.kmeans_demo import KMeansDemo
+from views.linear_regression_demo import LinearRegressionDemo
+from views.classification_demo import ClassificationDemo
+from views.neural_network_demo import NeuralNetworkDemo
+from views.nlp_sentiment_demo import NLPSentimentDemo
+from views.vision_edge_detection_demo import VisionEdgeDetectionDemo
+from views.kmeans_demo import KMeansDemo
+from views.generative_ai_demo import GenerativeAIDemo
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -51,6 +52,8 @@ class MainWindow(QMainWindow):
             new_widget = VisionEdgeDetectionDemo()
         elif module_name == "K-Means Clustering":
             new_widget = KMeansDemo()
+        elif module_name == "Generative AI":
+            new_widget = GenerativeAIDemo()
         else:
             return
         self.visual_area.setParent(None)
