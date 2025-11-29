@@ -11,12 +11,13 @@ __Instructions to run__
 4. Launch the application from your terminal with the command below.
     - `python3 main.py`
 5. Run tests
+
 |   Python Test Commands                      |     Purpose                                         |
 |---------------------------------------------|-----------------------------------------------------|
 | `pytest`                                    | Runs all tests                                      |
 | `pytest -q`                                 | Run in quiet mode                                   |
-| `pytest tests/<test file>`                  | Run a specific test file                            |
-| `pytest tests/<test file>::<function name>` | Run a specific method from a specific test file.    |
+| `pytest tests/test_file.py`                 | Run a specific test file                            |
+| `pytest tests/test_file.py::methodname()`   | Run a specific method from a specific test file.    |
 
 __Note:__ More and detailed instructions are in progress.
 
