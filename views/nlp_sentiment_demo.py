@@ -12,7 +12,7 @@ except:
      preventing nltk from downloading resources. The following code
      creates an unverified SSL context to bypass this issue.
      But this is generally not recommended for production code due to security
-     risks.
+     risks.[TODO: Find a better solution for SSL verification issues.]
     '''
     try:
         _create_unverified_https_context = ssl._create_unverified_context

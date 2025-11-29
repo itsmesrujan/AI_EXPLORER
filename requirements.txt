@@ -1,0 +1,8 @@
+cv2
+matplotlib
+nltk
+PySide6
+pytest
+scikit-learn
+torch
+transformers

@@ -1,13 +1,13 @@
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton, QSpinBox, QHBoxLayout
-from modules.generative_ai.generative_ai_demo import GenerativeAIDemo
+from models.generative_ai import GenerativeAI
 
-class GenerativeAIPage(QWidget):
+class GenerativeAIDemo(QWidget):
     def __init__(self):
         super().__init__()
-        self.demo = GenerativeAIDemo()
-        self.initUI()
+        self.__demo = GenerativeAI()
+        self.__initUI()
 
-    def initUI(self):
+    def __initUI(self):
         layout = QVBoxLayout()
         layout.addWidget(QLabel("<h1>Generative AI Demo</h1>"))
         layout.addWidget(QLabel("<p>Enter a prompt and watch AI generate content!</p>"))
@@ -22,19 +22,19 @@ class GenerativeAIPage(QWidget):
         layout.addLayout(settings_layout)
         self.generate_btn = QPushButton("Generate")
         layout.addWidget(self.generate_btn)
-        self.generate_btn.clicked.connect(self.run_generation)
+        self.generate_btn.clicked.connect(self.__run_generation)
         self.output_area = QTextEdit()
         self.output_area.setReadOnly(True)
         layout.addWidget(self.output_area)
         self.setLayout(layout)
 
-    def run_generation(self):
+    def __run_generation(self):
         prompt = self.prompt_input.toPlainText()
         temperature = self.temp_box.value() / 10
         self.output_area.setText("⏳ Generating... Please wait.")
         QApplication.processEvents()  # Update UI
         try:
-            output = self.demo.generate_text(prompt, temperature=temperature, max_tokens=200)
+            output = self.__demo.generate_text(prompt, temperature=temperature, max_tokens=200)
             self.output_area.setText(output)
         except Exception as e:
             self.output_area.setText(f"⚠️ Error: {str(e)}")

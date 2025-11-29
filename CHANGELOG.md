@@ -19,3 +19,15 @@
 - Generative AI update
 - Python unittest framework update
 - Known Issue: Failing when we run all tests at a time
+
+## [0.5.0] - 29-NOV-2025
+- Python unittest framework update
+    - Fixed a couple of issues
+    - Fixture update to avoid re-importing
+    - Known Issue: naming convention
+- Including package information in requirements.txt file
+- MVC design draft
+    - File segregation
+    - Functionality grading
+- README file update
+    - python test command update

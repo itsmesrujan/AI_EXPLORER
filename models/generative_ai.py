@@ -1,7 +1,7 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 
-class GenerativeAIDemo:
+class GenerativeAI:
     def __init__(self, model_name="gpt2"):
         print("Loading model...")
         # As its a common practice, we define special tokens
@@ -20,13 +20,20 @@ class GenerativeAIDemo:
         self.model.config.eos_token_id = self.tokenizer.eos_token_id
 
     def generate_text(self, prompt, temperature=0.7, max_tokens=100):
-        inputs = self.tokenizer.encode(prompt, return_tensors="pt")
-        outputs = self.model.generate(
-            inputs,
-            max_length=max_tokens,
-            temperature=temperature,
-            top_p=0.9,
-            do_sample=True,
-            pad_token_id=self.tokenizer.eos_token_id
-        )
-        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        try:
+            if prompt!='':
+                inputs = self.tokenizer.encode(prompt, return_tensors="pt")
+                outputs = self.model.generate(
+                    inputs,
+                    max_length=max_tokens,
+                    temperature=temperature,
+                    top_p=0.9,
+                    do_sample=True,
+                    pad_token_id=self.tokenizer.eos_token_id
+                )
+                return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            else:
+                return "Please provide a valid prompt."
+        except Exception as e:
+            print(f"Error during text generation: {e}")
+            return "Error generating text."
