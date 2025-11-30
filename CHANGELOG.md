@@ -31,3 +31,10 @@
     - Functionality grading
 - README file update
     - python test command update
+
+## [0.6.0] - 30-NOV-2025
+- Model files update
+- View files update
+- Class update
+    - private variable consideration
+    - class doc comments update

@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 
 class Common:
     def __init__(self):
+        'common utilities for models and views'
         pass
 
-    @staticmethod
-    def get_common_figure(self):
+    def get_plot_figure(self):
         return plt.figure()

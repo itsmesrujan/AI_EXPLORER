@@ -8,7 +8,8 @@ class ClassificationDemo(QWidget):
         layout = QVBoxLayout()
         self.setLayout(layout)
         self.__classification_instance = None
-        self.__figure = Common.get_classification_figure()
+        __common_instance = Common()
+        self.__figure = __common_instance.get_plot_figure()
         self.__canvas = FigureCanvas(self.__figure)
         self.__button = QPushButton("Generate Classification Demo")
         self.__button.clicked.connect(self.__run_demo)

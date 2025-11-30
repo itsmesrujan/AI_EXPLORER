@@ -3,6 +3,7 @@ from sklearn.cluster import KMeans
 
 class Kmeans:
     def __init__(self):
+        'model class for K-Means clustering'
         pass
 
     def generate_synthetic_data(self, n_samples_per_cluster=150, random_state=42):
