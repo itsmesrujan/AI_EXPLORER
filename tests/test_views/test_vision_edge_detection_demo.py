@@ -1,3 +1,6 @@
+# [TODO] Enable these fixtures after updating UI tests to match recent code
+# changes
+
 # def test_import_and_init(vision_edge_detection_demo):
 #     assert vision_edge_detection_demo is not None
 

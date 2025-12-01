@@ -1,8 +1,8 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
-from ui.sidebar import Sidebar
-from ui.concept_page import ConceptPage
 from data.concepts import CONCEPT_INFO
+from views.sidebar import Sidebar
+from views.concept_page import ConceptPage
 from views.linear_regression_demo import LinearRegressionDemo
 from views.classification_demo import ClassificationDemo
 from views.neural_network_demo import NeuralNetworkDemo

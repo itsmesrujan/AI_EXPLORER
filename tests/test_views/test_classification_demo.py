@@ -1,3 +1,6 @@
+# [TODO] Enable these fixtures after updating UI tests to match recent code
+# changes
+
 # def test_import_and_init(classification_demo):
 #     assert classification_demo is not None
 

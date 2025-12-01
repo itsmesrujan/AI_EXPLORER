@@ -38,3 +38,11 @@
 - Class update
     - private variable consideration
     - class doc comments update
+
+## [0.7.0] - 01-DEC-2025
+- Model files update
+    - exception handling update
+- View files update
+    - ui file shift
+- test file segregation
+- design update

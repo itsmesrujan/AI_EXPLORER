@@ -6,4 +6,8 @@ class Common:
         pass
 
     def get_plot_figure(self):
-        return plt.figure()
+        try:
+            return plt.figure()
+        except Exception as e:
+            print(f"Error while creating plot figure: {e}")
+            return None

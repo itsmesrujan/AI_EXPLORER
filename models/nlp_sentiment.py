@@ -7,7 +7,12 @@ class NLPSentiment:
         'model class for natural language processing sentiment analysis'
         # Ensure VADER is downloaded
         self.__download_vader()
-        self.__analyzer = SentimentIntensityAnalyzer()
+        self.__analyzer = None
+        try:
+            self.__analyzer = SentimentIntensityAnalyzer()
+        except Exception as e:
+            print(f"Error while initializing SentimentIntensityAnalyzer: {e}")
+            self.__analyzer = None
 
     def __download_vader(self):
         try:

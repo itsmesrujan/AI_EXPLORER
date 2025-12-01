@@ -12,11 +12,15 @@ class Classification:
             n_redundant=0,\
             n_clusters_per_class=1,\
             random_state=42):
-        x, y = make_classification(
-            n_samples=n_samples,
-            n_features=n_features,
-            n_redundant=n_redundant,
-            n_clusters_per_class=n_clusters_per_class,
-            random_state=random_state
-        )
-        return x, y
+        try:
+            x, y = make_classification(\
+                n_samples=n_samples,\
+                n_features=n_features,\
+                n_redundant=n_redundant,\
+                n_clusters_per_class=n_clusters_per_class,\
+                random_state=random_state
+            )
+            return x, y
+        except Exception as e:
+            print(f"Error while generating classification data: {e}")
+            return None, None

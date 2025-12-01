@@ -1,3 +1,6 @@
+# [TODO] Enable these fixtures after updating UI tests to match recent code
+# changes
+
 # def test_import_and_init(nlp_sentiment_demo):
 #     assert nlp_sentiment_demo is not None
 
