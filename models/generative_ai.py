@@ -1,8 +1,10 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
+# [TODO] Use AutoModel and AutoTokenizer to support multiple models
+# from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 class GenerativeAI:
-    def __init__(self, model_name="gpt2"):
+    def __init__(self, model_id="gpt2"):
         'model class for generative AI using GPT-2'
         print("Loading model...")
         # As its a common practice, we define special tokens
@@ -10,10 +12,10 @@ class GenerativeAI:
                           'bos_token': '<BOS>',
                           'eos_token': '<EOS>',
                           'unk_token': '<UNK>'}
-        self.__tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+        self.__tokenizer = GPT2Tokenizer.from_pretrained(model_id)
         # add new special tokens to the tokenizer
         self.__tokenizer.add_special_tokens(SPECIAL_TOKENS)
-        self.__model = GPT2LMHeadModel.from_pretrained(model_name)
+        self.__model = GPT2LMHeadModel.from_pretrained(model_id)
         self.__model.resize_token_embeddings(len(self.__tokenizer))
         self.__model.eval()  # inference mode
         # Model configurations for generation can be set here if needed

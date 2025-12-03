@@ -46,3 +46,9 @@
     - ui file shift
 - test file segregation
 - design update
+
+## [0.8.0] - 03-DEC-2025
+- Register models through factory pattern
+- Opensource model info specification
+- App background image update
+- GitHub workflow definition

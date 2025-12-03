@@ -3,19 +3,15 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
 from data.concepts import CONCEPT_INFO
 from views.sidebar import Sidebar
 from views.concept_page import ConceptPage
-from views.linear_regression_demo import LinearRegressionDemo
-from views.classification_demo import ClassificationDemo
-from views.neural_network_demo import NeuralNetworkDemo
-from views.nlp_sentiment_demo import NLPSentimentDemo
-from views.vision_edge_detection_demo import VisionEdgeDetectionDemo
-from views.kmeans_demo import KMeansDemo
-from views.generative_ai_demo import GenerativeAIDemo
+from factories.demo_registration import register_demo_models
+from factories.model_factory import ModelFactory
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("AI Concepts Explorer")
         self.setMinimumSize(1000, 600)
+        self.setStyleSheet("background-image: url('images/AI_explorer_background.png');")
         # Create the central container widget
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -25,7 +21,11 @@ class MainWindow(QMainWindow):
         self.sidebar = Sidebar(default_selection="Concepts Overview")
         self.sidebar.setMaximumWidth(central_widget.width() * 0.5)
         self.sidebar.selection_changed.connect(self.load_module)
+        # scroll = QScrollArea()
+        # scroll.setWidgetResizable(True)
+        # scroll.setWidget(self.sidebar)
         layout.addWidget(self.sidebar, stretch=1)
+        # layout.addWidget(scroll)
         # DEFAULT VIEW: Load ConceptPage at startup
         self.visual_area = ConceptPage(CONCEPT_INFO['Concepts Overview'])
         layout.addWidget(self.visual_area)
@@ -40,27 +40,18 @@ class MainWindow(QMainWindow):
         self.centralWidget().layout().addWidget(self.visual_area)
 
     def launch_demo(self, module_name):
-        if module_name == "Linear Regression":
-            new_widget = LinearRegressionDemo()
-        elif module_name == "Classification":
-            new_widget = ClassificationDemo()
-        elif module_name == "Neural Network":
-            new_widget = NeuralNetworkDemo()
-        elif module_name == "NLP Sentiment":
-            new_widget = NLPSentimentDemo()
-        elif module_name == "Computer Vision Edges":
-            new_widget = VisionEdgeDetectionDemo()
-        elif module_name == "K-Means Clustering":
-            new_widget = KMeansDemo()
-        elif module_name == "Generative AI":
-            new_widget = GenerativeAIDemo()
-        else:
+        try:
+            new_widget = ModelFactory.create_model(module_name)
+        except ValueError as e:
+            print(e)
             return
         self.visual_area.setParent(None)
         self.visual_area = new_widget
         self.centralWidget().layout().addWidget(self.visual_area)
 
 if __name__ == "__main__":
+    # Register demo models in the factory
+    register_demo_models()
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()

@@ -19,6 +19,8 @@ class Sidebar(QWidget):
         ]
         for c in concepts:
             button = QPushButton(c)
+            # [TODO] Style the buttons to be transparent background
+            # button.setStyleSheet("text-background-color: transparent;")
             button.clicked.connect(lambda _, x=c: self.selection_changed.emit(x))
             layout.addWidget(button)
         if default_selection:
