@@ -52,3 +52,9 @@
 - Opensource model info specification
 - App background image update
 - GitHub workflow definition
+
+## [0.9.0] - 04-DEC-2025
+- Design update
+    - Abstract factory pattern usage for common UI elements
+- Demo registration update
+- Model factory update in sync with design update

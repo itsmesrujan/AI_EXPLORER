@@ -1,12 +1,12 @@
 import numpy as np
 from sklearn.cluster import KMeans
 
-class Kmeans:
+class KmeansClusterModel:
     def __init__(self):
         'model class for K-Means clustering'
         pass
 
-    def generate_synthetic_data(self, n_samples_per_cluster=150, random_state=42):
+    def get_synthetic_data(self, n_samples_per_cluster=150, random_state=42):
         try:
             np.random.seed(random_state)
             X = np.vstack([
@@ -19,7 +19,7 @@ class Kmeans:
             print(f"Error while generating synthetic data: {e}")
             return None
     
-    def get_kmeans_cluster_data(self, clusters=3, r_state=42):
+    def get_cluster_data(self, clusters=3, r_state=42):
         try:
             ''' Returns synthetic data and fits KMeans model '''
             return KMeans(n_clusters=clusters, random_state=r_state)

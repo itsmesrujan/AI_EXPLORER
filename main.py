@@ -21,11 +21,7 @@ class MainWindow(QMainWindow):
         self.sidebar = Sidebar(default_selection="Concepts Overview")
         self.sidebar.setMaximumWidth(central_widget.width() * 0.5)
         self.sidebar.selection_changed.connect(self.load_module)
-        # scroll = QScrollArea()
-        # scroll.setWidgetResizable(True)
-        # scroll.setWidget(self.sidebar)
         layout.addWidget(self.sidebar, stretch=1)
-        # layout.addWidget(scroll)
         # DEFAULT VIEW: Load ConceptPage at startup
         self.visual_area = ConceptPage(CONCEPT_INFO['Concepts Overview'])
         layout.addWidget(self.visual_area)
@@ -50,9 +46,9 @@ class MainWindow(QMainWindow):
         self.centralWidget().layout().addWidget(self.visual_area)
 
 if __name__ == "__main__":
+    app = QApplication(sys.argv)
     # Register demo models in the factory
     register_demo_models()
-    app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())

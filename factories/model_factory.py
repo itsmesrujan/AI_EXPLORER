@@ -1,4 +1,3 @@
-# [TODO] Update this class to register new models as they are added
 class ModelFactory:
     __registry = {}
 
@@ -8,8 +7,7 @@ class ModelFactory:
 
     @classmethod
     def create_model(cls, model_name):
-        model_class = cls.__registry.get(model_name)
-        if model_class:
-            return model_class()
-        else:
+        try:
+            return cls.__registry.get(model_name)
+        except ValueError:
             raise ValueError(f"Model '{model_name}' is not registered in the factory.")
