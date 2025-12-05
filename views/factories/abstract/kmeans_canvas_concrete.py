@@ -1,4 +1,4 @@
-from factories.abstract.iconcrete_canvas import ICanvas
+from views.factories.abstract.icanvas_concrete import ICanvas
 
 class KMeansCanvas(ICanvas):
     def __init__(self, model):

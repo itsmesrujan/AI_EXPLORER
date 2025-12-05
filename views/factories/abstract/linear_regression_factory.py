@@ -1,5 +1,5 @@
-from factories.abstract.ifactory_demo import IDemoFactory
-from factories.abstract.concrete_linear_regression_canvas import LinearRegressionCanvas
+from views.factories.abstract.idemo_factory import IDemoFactory
+from views.factories.abstract.linear_regression_canvas_concrete import LinearRegressionCanvas
 
 class LinearRegressionFactory(IDemoFactory):
     def __init__(self):

@@ -1,5 +1,5 @@
-from factories.abstract.ifactory_demo import IDemoFactory
-from factories.abstract.concrete_kmeans_canvas import KMeansCanvas
+from views.factories.abstract.idemo_factory import IDemoFactory
+from views.factories.abstract.kmeans_canvas_concrete import KMeansCanvas
 
 class KMeanFactory(IDemoFactory):
     def __init__(self):

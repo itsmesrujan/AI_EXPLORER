@@ -18,7 +18,7 @@ class KmeansClusterModel:
         except Exception as e:
             print(f"Error while generating synthetic data: {e}")
             return None
-    
+
     def get_cluster_data(self, clusters=3, r_state=42):
         try:
             ''' Returns synthetic data and fits KMeans model '''

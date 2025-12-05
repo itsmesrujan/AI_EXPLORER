@@ -1,5 +1,5 @@
-from factories.abstract.ifactory_demo import IDemoFactory
-from factories.abstract.concrete_classification_canvas import ClassificationCanvas
+from views.factories.abstract.idemo_factory import IDemoFactory
+from views.factories.abstract.classification_canvas_concrete import ClassificationCanvas
 
 class ClassificationFactory(IDemoFactory):
     def __init__(self):

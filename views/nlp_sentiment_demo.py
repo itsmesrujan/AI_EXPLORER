@@ -13,10 +13,9 @@ class NLPSentimentDemo(QWidget):
         layout.addWidget(self.__input_box)
         layout.addWidget(self.__button)
         layout.addWidget(self.__result_label)
-        # Initialize NLPSentiment model instance
-        from models.nlp_sentiment import NLPSentiment 
-        self.__NLPSentiment_instance = NLPSentiment()
 
     def analyze(self):
         text = self.__input_box.toPlainText()
-        self.__result_label.setText(self.__NLPSentiment_instance.get_polarity_scores(text))
+        from controllers.nlp_sentiment_controller import NLPSentimentController
+        nlp_instance = NLPSentimentController()
+        self.__result_label.setText(nlp_instance.get_scores(text))

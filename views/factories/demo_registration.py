@@ -1,7 +1,7 @@
-from factories.model_factory import ModelFactory
-from factories.abstract.factory_classification import ClassificationFactory
-from factories.abstract.factory_linear_regression import LinearRegressionFactory
-from factories.abstract.factory_kmeans import KMeanFactory
+from views.factories.model_factory import ModelFactory
+from views.factories.abstract.classification_factory import ClassificationFactory
+from views.factories.abstract.linear_regression_factory import LinearRegressionFactory
+from views.factories.abstract.kmeans_factory import KMeanFactory
 
 from views.neural_network_demo import NeuralNetworkDemo
 from views.nlp_sentiment_demo import NLPSentimentDemo

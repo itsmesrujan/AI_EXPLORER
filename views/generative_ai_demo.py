@@ -1,10 +1,8 @@
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton, QSpinBox, QHBoxLayout
-from models.generative_ai import GenerativeAI
 
 class GenerativeAIDemo(QWidget):
     def __init__(self):
         super().__init__()
-        self.__demo = GenerativeAI()
         self.__initUI()
 
     def __initUI(self):
@@ -29,14 +27,14 @@ class GenerativeAIDemo(QWidget):
         self.setLayout(layout)
 
     def __run_generation(self):
-        prompt = self.__prompt_input.toPlainText()
-        temperature = self.__temp_box.value() / 10
-        self.__output_area.setText("⏳ Generating... Please wait.")
-        QApplication.processEvents()  # Update UI
         try:
-            self.__output_area.setText(self.__demo.generate_text(\
-                prompt,\
-                temperature=temperature,\
-                max_tokens=200))
+            prompt = self.__prompt_input.toPlainText()
+            temperature = self.__temp_box.value() / 10
+            self.__output_area.setText("⏳ Generating... Please wait.")
+            QApplication.processEvents()  # Update UI
+            from controllers.generative_ai_controller import GenerativeAIController
+            controller_instance = GenerativeAIController()
+            text = controller_instance.get_generated_text(prompt, temperature)
+            self.__output_area.setText(text)
         except Exception as e:
             self.__output_area.setText(f"⚠️ Error: {str(e)}")

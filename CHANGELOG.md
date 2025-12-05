@@ -49,7 +49,7 @@
 
 ## [0.8.0] - 03-DEC-2025
 - Register models through factory pattern
-- Opensource model info specification
+- Open source model info specification
 - App background image update
 - GitHub workflow definition
 
@@ -58,3 +58,9 @@
     - Abstract factory pattern usage for common UI elements
 - Demo registration update
 - Model factory update in sync with design update
+
+## [0.10.0] - 05-DEC-2025
+- Design update
+    - Sync of naming convention
+    - Introduction of controller classes
+- View file segregation

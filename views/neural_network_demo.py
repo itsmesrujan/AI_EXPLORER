@@ -12,7 +12,8 @@ class NeuralNetworkDemo(QWidget):
         layout.addWidget(self.__button)
 
     def train_neural_network(self):
-        from models.neural_network import NeuralNetwork
-        neural_network_instance = NeuralNetwork()
-        output = neural_network_instance.train_xor_network()
-        self.__label.setText(f"Trained XOR Network Output:\n{output}")
+        from controllers.neural_network_controller import NeuralNetworkController
+        neural_instance = NeuralNetworkController()
+        self.__label.setText(\
+            f"Trained XOR Network Output:\n\
+                {neural_instance.get_neural_network_output()}")

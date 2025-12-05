@@ -3,8 +3,8 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
 from data.concepts import CONCEPT_INFO
 from views.sidebar import Sidebar
 from views.concept_page import ConceptPage
-from factories.demo_registration import register_demo_models
-from factories.model_factory import ModelFactory
+from views.factories.demo_registration import register_demo_models
+from views.factories.model_factory import ModelFactory
 
 class MainWindow(QMainWindow):
     def __init__(self):
