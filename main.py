@@ -1,4 +1,5 @@
 import sys
+import qdarkstyle
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
 from data.concepts import CONCEPT_INFO
 from views.sidebar import Sidebar
@@ -11,6 +12,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("AI Concepts Explorer")
         self.setMinimumSize(1000, 600)
+        # [TODO] Have a dedicated file for stylesheets
         self.setStyleSheet("background-image: url('images/AI_explorer_background.png');")
         # Create the central container widget
         central_widget = QWidget()
@@ -50,5 +52,6 @@ if __name__ == "__main__":
     # Register demo models in the factory
     register_demo_models()
     window = MainWindow()
+    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6'))
     window.show()
     sys.exit(app.exec())

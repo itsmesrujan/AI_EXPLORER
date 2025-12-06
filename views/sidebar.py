@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton
+from PySide6.QtWidgets import QWidget, QVBoxLayout
 from PySide6.QtCore import Signal
+from utils.views.custom_push_button import CustomPushButton
 
 class Sidebar(QWidget):
     selection_changed = Signal(str)
@@ -18,9 +19,10 @@ class Sidebar(QWidget):
             "Generative AI"
         ]
         for c in concepts:
-            button = QPushButton(c)
+            button = CustomPushButton(c)
             # [TODO] Style the buttons to be transparent background
             # button.setStyleSheet("text-background-color: transparent;")
+            button.setStyleSheet("background-color: transparent; border: none; text-align: center; padding: 10px;")
             button.clicked.connect(lambda _, x=c: self.selection_changed.emit(x))
             layout.addWidget(button)
         if default_selection:

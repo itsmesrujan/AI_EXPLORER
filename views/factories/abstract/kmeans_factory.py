@@ -7,9 +7,5 @@ class KMeanFactory(IDemoFactory):
         super().__init__()
         pass
 
-    def create_model(self):
-        from models.kmeans_clustering import KmeansClusterModel
-        return KmeansClusterModel()
-
     def create_canvas(self):
-        return KMeansCanvas(self.create_model())
+        return KMeansCanvas()

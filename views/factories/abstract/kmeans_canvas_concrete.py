@@ -1,15 +1,14 @@
 from views.factories.abstract.icanvas_concrete import ICanvas
 
 class KMeansCanvas(ICanvas):
-    def __init__(self, model):
+    def __init__(self):
         super().__init__()
-        self.model = model
         self.button.clicked.connect(self.__runDemo)
 
     def __runDemo(self):
-        x = self.model.get_synthetic_data()
-        cluster_data = self.model.get_cluster_data()
-        y = cluster_data.fit_predict(x)
+        from controllers.kmeans_controller import KMeansController
+        kmeans_instance = KMeansController()
+        x, cluster_data, y = kmeans_instance.get_kmeans_data()
         self.figure.clear()
         # Axes object to plot data on to Figure
         ax = self.figure.add_subplot(111)

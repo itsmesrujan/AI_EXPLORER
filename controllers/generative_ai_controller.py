@@ -8,4 +8,4 @@ class GenerativeAIController:
     def get_generated_text(self, prompt, temperature):
         return self.__demo.generate_text(prompt,\
                                          temperature=temperature,\
-                                         max_tokens=50)
+                                         max_new_tokens=100)

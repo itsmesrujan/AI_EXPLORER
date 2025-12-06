@@ -1,14 +1,15 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QFileDialog
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QFileDialog
 from PySide6.QtGui import QPixmap, QImage
 from controllers.vision_edge_detection_controller import VisionEdgeDetectionController
+from utils.views.custom_push_button import CustomPushButton
 
 class VisionEdgeDetectionDemo(QWidget):
     def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
         self.setLayout(layout)
-        self.__button_load = QPushButton("Load Image")
-        self.__button_detect = QPushButton("Detect Edges")
+        self.__button_load = CustomPushButton("Load Image")
+        self.__button_detect = CustomPushButton("Detect Edges")
         self.__label_original = QLabel("Original Image")
         self.__label_edges = QLabel("Edges will appear here")
         self.__button_load.clicked.connect(self.load_image)

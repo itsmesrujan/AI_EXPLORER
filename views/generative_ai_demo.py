@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton, QSpinBox, QHBoxLayout
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QTextEdit, QSpinBox, QHBoxLayout
+from utils.views.custom_push_button import CustomPushButton
 
 class GenerativeAIDemo(QWidget):
     def __init__(self):
@@ -18,7 +19,7 @@ class GenerativeAIDemo(QWidget):
         settings_layout.addWidget(QLabel("Creativity (1-10):"))
         settings_layout.addWidget(self.__temp_box)
         layout.addLayout(settings_layout)
-        self.__generate_btn = QPushButton("Generate")
+        self.__generate_btn = CustomPushButton("Generate")
         layout.addWidget(self.__generate_btn)
         self.__generate_btn.clicked.connect(self.__run_generation)
         self.__output_area = QTextEdit()

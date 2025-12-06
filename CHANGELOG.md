@@ -64,3 +64,22 @@
     - Sync of naming convention
     - Introduction of controller classes
 - View file segregation
+
+## [0.11.0] - 06-DEC-2025
+- App style update
+    - qdarkstyle support for overall app styling
+        - main file update
+        - requirement file update
+    - Common custom push button class update
+- Remaining controller class updates
+    - Filtered demo classes
+- Issue fixes
+    - NLP sentiment analysis output view fix
+    - day & night mac transition impact on app issue fix
+- Generative AI update
+    - model class refinement
+- Pythonic way of protected class member update
+    - protected by convention
+- test case update
+    - naming convention update
+    - work around for one of the generative AI's output

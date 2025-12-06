@@ -35,5 +35,6 @@ _Supporting packages(so far):_
 |   scikit-learn    | Supports machine learning demonstrations                      | `pip3 install scikit-learn`   |
 |   torch           | Supports deep neural networks and tensor computation          | `pip3 install torch`          |
 |   transformers    | Acts as the model-definition framework                        | `pip3 install transformers`   |
+|   qdarkstyle      | Supports to fetch dark/light style sheet for Qt applications  | `pip3 install qdarkstyle`     |
 
 For more information on packages, refer to [pypi site](https://pypi.org/).

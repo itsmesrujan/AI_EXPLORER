@@ -1,13 +1,14 @@
 from views.factories.abstract.icanvas_concrete import ICanvas
 
 class ClassificationCanvas(ICanvas):
-    def __init__(self, model):
+    def __init__(self):
         super().__init__()
-        self.model = model
         self.button.clicked.connect(self.__runDemo)
 
     def __runDemo(self):
-        x, y = self.model.get_classification_data()
+        from controllers.classification_controller import ClassificationController
+        classification_instance = ClassificationController()
+        x, y = classification_instance.get_classification_data()
         # plot
         self.figure.clear()
         ax = self.figure.add_subplot(111)

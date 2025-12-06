@@ -7,9 +7,5 @@ class ClassificationFactory(IDemoFactory):
         super().__init__()
         pass
 
-    def create_model(self):
-        from models.classification import Classification
-        return Classification()
-
     def create_canvas(self):
-        return ClassificationCanvas(self.create_model())
+        return ClassificationCanvas()

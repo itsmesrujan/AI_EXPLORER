@@ -1,13 +1,14 @@
 from views.factories.abstract.icanvas_concrete import ICanvas
 
 class LinearRegressionCanvas(ICanvas):
-    def __init__(self, model):
+    def __init__(self):
         super().__init__()
-        self.model = model
         self.button.clicked.connect(self.__runDemo)
 
     def __runDemo(self):
-        x, y, x_new, y_predict = self.model.get_linear_plot_data()
+        from controllers.linear_regression_controller import LinearRegressionController
+        lr_instance = LinearRegressionController()
+        x, y, x_new, y_predict = lr_instance.get_plot_data()
         self.figure.clear()
         # Axes object to plot data onto the Figure
         ax = self.figure.add_subplot(111)

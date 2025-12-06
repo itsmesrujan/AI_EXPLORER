@@ -7,12 +7,12 @@ class NLPSentiment:
         'model class for natural language processing sentiment analysis'
         # Ensure VADER is downloaded
         self.__download_vader()
-        self.__analyzer = None
+        self._analyzer = None
         try:
-            self.__analyzer = SentimentIntensityAnalyzer()
+            self._analyzer = SentimentIntensityAnalyzer()
         except Exception as e:
             print(f"Error while initializing SentimentIntensityAnalyzer: {e}")
-            self.__analyzer = None
+            self._analyzer = None
 
     def __download_vader(self):
         try:
@@ -35,7 +35,7 @@ class NLPSentiment:
 
     def get_polarity_scores(self, text):
         try:
-            return str(self.__analyzer.polarity_scores(text))
+            return str(self._analyzer.polarity_scores(text))
         except Exception as e:
             print(f"Error while getting polarity scores: {e}")
             return 'Error analyzing sentiment.'

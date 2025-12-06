@@ -7,9 +7,5 @@ class LinearRegressionFactory(IDemoFactory):
         super().__init__()
         pass
 
-    def create_model(self):
-        from models.linear_regression import LinearRegression
-        return LinearRegression()
-
     def create_canvas(self):
-        return LinearRegressionCanvas(self.create_model())
+        return LinearRegressionCanvas()
