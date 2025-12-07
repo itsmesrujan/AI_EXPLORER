@@ -83,3 +83,7 @@
 - test case update
     - naming convention update
     - work around for one of the generative AI's output
+
+## [0.11.1] - 07-DEC-2025
+- Fix of module inclusion file in controllers
+- Python cache file removal from repo
