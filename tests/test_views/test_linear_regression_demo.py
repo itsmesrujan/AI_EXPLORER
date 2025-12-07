@@ -1,3 +1,6 @@
+# [TODO] Enable these fixtures after updating UI tests to match recent code
+# changes
+
 # def test_import_and_init(linear_regression_demo):
 #     assert linear_regression_demo is not None
 

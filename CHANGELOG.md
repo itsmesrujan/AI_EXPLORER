@@ -31,3 +31,55 @@
     - Functionality grading
 - README file update
     - python test command update
+
+## [0.6.0] - 30-NOV-2025
+- Model files update
+- View files update
+- Class update
+    - private variable consideration
+    - class doc comments update
+
+## [0.7.0] - 01-DEC-2025
+- Model files update
+    - exception handling update
+- View files update
+    - ui file shift
+- test file segregation
+- design update
+
+## [0.8.0] - 03-DEC-2025
+- Register models through factory pattern
+- Open source model info specification
+- App background image update
+- GitHub workflow definition
+
+## [0.9.0] - 04-DEC-2025
+- Design update
+    - Abstract factory pattern usage for common UI elements
+- Demo registration update
+- Model factory update in sync with design update
+
+## [0.10.0] - 05-DEC-2025
+- Design update
+    - Sync of naming convention
+    - Introduction of controller classes
+- View file segregation
+
+## [0.11.0] - 06-DEC-2025
+- App style update
+    - qdarkstyle support for overall app styling
+        - main file update
+        - requirement file update
+    - Common custom push button class update
+- Remaining controller class updates
+    - Filtered demo classes
+- Issue fixes
+    - NLP sentiment analysis output view fix
+    - day & night mac transition impact on app issue fix
+- Generative AI update
+    - model class refinement
+- Pythonic way of protected class member update
+    - protected by convention
+- test case update
+    - naming convention update
+    - work around for one of the generative AI's output

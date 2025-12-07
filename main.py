@@ -1,21 +1,19 @@
 import sys
+import qdarkstyle
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout
-from ui.sidebar import Sidebar
-from ui.concept_page import ConceptPage
 from data.concepts import CONCEPT_INFO
-from views.linear_regression_demo import LinearRegressionDemo
-from views.classification_demo import ClassificationDemo
-from views.neural_network_demo import NeuralNetworkDemo
-from views.nlp_sentiment_demo import NLPSentimentDemo
-from views.vision_edge_detection_demo import VisionEdgeDetectionDemo
-from views.kmeans_demo import KMeansDemo
-from views.generative_ai_demo import GenerativeAIDemo
+from views.sidebar import Sidebar
+from views.concept_page import ConceptPage
+from views.factories.demo_registration import register_demo_models
+from views.factories.model_factory import ModelFactory
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("AI Concepts Explorer")
         self.setMinimumSize(1000, 600)
+        # [TODO] Have a dedicated file for stylesheets
+        self.setStyleSheet("background-image: url('images/AI_explorer_background.png');")
         # Create the central container widget
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -40,21 +38,10 @@ class MainWindow(QMainWindow):
         self.centralWidget().layout().addWidget(self.visual_area)
 
     def launch_demo(self, module_name):
-        if module_name == "Linear Regression":
-            new_widget = LinearRegressionDemo()
-        elif module_name == "Classification":
-            new_widget = ClassificationDemo()
-        elif module_name == "Neural Network":
-            new_widget = NeuralNetworkDemo()
-        elif module_name == "NLP Sentiment":
-            new_widget = NLPSentimentDemo()
-        elif module_name == "Computer Vision Edges":
-            new_widget = VisionEdgeDetectionDemo()
-        elif module_name == "K-Means Clustering":
-            new_widget = KMeansDemo()
-        elif module_name == "Generative AI":
-            new_widget = GenerativeAIDemo()
-        else:
+        try:
+            new_widget = ModelFactory.create_model(module_name)
+        except ValueError as e:
+            print(e)
             return
         self.visual_area.setParent(None)
         self.visual_area = new_widget
@@ -62,6 +49,9 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    # Register demo models in the factory
+    register_demo_models()
     window = MainWindow()
+    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6'))
     window.show()
     sys.exit(app.exec())

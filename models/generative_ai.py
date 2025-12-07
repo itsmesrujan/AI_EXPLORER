@@ -1,39 +1,71 @@
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+# from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 class GenerativeAI:
-    def __init__(self, model_name="gpt2"):
-        print("Loading model...")
-        # As its a common practice, we define special tokens
-        SPECIAL_TOKENS = {'pad_token': '<PAD>',
-                          'bos_token': '<BOS>',
-                          'eos_token': '<EOS>',
-                          'unk_token': '<UNK>'}
-        self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-        # add new special tokens to the tokenizer
-        self.tokenizer.add_special_tokens(SPECIAL_TOKENS)
-        self.model = GPT2LMHeadModel.from_pretrained(model_name)
-        self.model.resize_token_embeddings(len(self.tokenizer))
-        self.model.eval()  # inference mode
-        # Model configurations for generation can be set here if needed
-        self.model.config.pad_token_id = self.tokenizer.pad_token_id
-        self.model.config.eos_token_id = self.tokenizer.eos_token_id
+    def __init__(self, model_id="gpt2"):
+        'model class for generative AI using GPT-2 model'
+        self._device = self._select_device()
+        # Load tokenizer
+        self._tokenizer = AutoTokenizer.from_pretrained(model_id)
+        # GPT-2 has no pad token → use eos token
+        if self._tokenizer.pad_token is None:
+            self._tokenizer.pad_token = self._tokenizer.eos_token
+        # Load model
+        self._model = AutoModelForCausalLM.from_pretrained(model_id)
+        self._model.to(self._device)
+        self._model.eval()
 
-    def generate_text(self, prompt, temperature=0.7, max_tokens=100):
+    def _select_device(self):
+        # CUDA available and actually works
+        if torch.cuda.is_available():
+            try:
+                torch.cuda.current_device()
+                return torch.device("cuda")
+            except Exception:
+                pass # CUDA is broken → fall back
+        # Apple Silicon (M1/M2/M3)
+        if torch.backends.mps.is_available() and torch.backends.mps.is_built():
+            return torch.device("mps")
+        # CPU fallback
+        return torch.device("cpu")
+
+    def generate_text(self,\
+                      prompt: str,\
+                      max_new_tokens: int = 100,\
+                      temperature: float = 0.7,\
+                      top_p: float = 0.9,\
+                      top_k: int = 40,\
+                      repetition_penalty: float = 1.2) -> str:
+        """ Generate text with safe defaults """
+        if not prompt.strip():
+            return "Error: Prompt cannot be empty."
         try:
-            if prompt!='':
-                inputs = self.tokenizer.encode(prompt, return_tensors="pt")
-                outputs = self.model.generate(
-                    inputs,
-                    max_length=max_tokens,
-                    temperature=temperature,
-                    top_p=0.9,
-                    do_sample=True,
-                    pad_token_id=self.tokenizer.eos_token_id
-                )
-                return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-            else:
-                return "Please provide a valid prompt."
+            inputs = self._tokenizer(prompt, return_tensors="pt").to(self._device)
+            output_ids = self._model.generate(
+                **inputs,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                top_k=top_k,
+                repetition_penalty=repetition_penalty,
+                do_sample=True,
+                pad_token_id=self._tokenizer.eos_token_id,
+                eos_token_id=self._tokenizer.eos_token_id,
+            )
+            return self._tokenizer.decode(output_ids[0], skip_special_tokens=True)
         except Exception as e:
-            print(f"Error during text generation: {e}")
-            return "Error generating text."
+            return f"Error during text generation: {e}"
+
+    # Expose tokenizer and model safely (if needed)
+    # @property
+    # def tokenizer(self):
+    #     return self._tokenizer
+    
+    # @property
+    # def model(self):
+    #     return self._model
+    
+    # @property
+    # def device(self):
+    #     return self._device
