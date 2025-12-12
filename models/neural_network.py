@@ -5,7 +5,7 @@ class NeuralNetwork:
     def __init__(self):
         'model class for neural networks'
         pass
-    
+
     def __get_tensor(self, data):
         return torch.tensor(data, dtype=torch.float32)
 

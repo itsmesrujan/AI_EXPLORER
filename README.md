@@ -1,5 +1,7 @@
 __AI-Powered AI Concept Explorer - A Desktop Based Application__
 
+This application is developed to demonstrate various AI/ML concepts.
+
 _[More detail specification including code/technical documentation is in progress]_
 
 __Instructions to run__
@@ -38,3 +40,5 @@ _Supporting packages(so far):_
 |   qdarkstyle      | Supports to fetch dark/light style sheet for Qt applications  | `pip3 install qdarkstyle`     |
 
 For more information on packages, refer to [pypi site](https://pypi.org/).
+
+>Note: I am developing this application out of my curiosity towards AI. If anyone is willing to contribute, then I would suggest to raise a PR / reach out to me via email.

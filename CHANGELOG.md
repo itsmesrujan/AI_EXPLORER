@@ -87,3 +87,10 @@
 ## [0.11.1] - 07-DEC-2025
 - Fix of module inclusion file in controllers
 - Python cache file removal from repo
+
+## [0.12.0] - 12-DEC-2025
+- Reinforcement learning update
+- Ignore file update
+- pytest workflow partial issue fix
+- Deepdive mark down draft file update
+- Test case updates

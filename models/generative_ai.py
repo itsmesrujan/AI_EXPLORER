@@ -30,6 +30,15 @@ class GenerativeAI:
         # CPU fallback
         return torch.device("cpu")
 
+    def get_input_tokens(self, prompt: str):
+        """ Tokenize input prompt """
+        try:
+            inputs = self._tokenizer(prompt, return_tensors="pt").to(self._device)
+            return inputs
+        except Exception as e:
+            print(f"Error during tokenization: {e}")
+            return None
+
     def generate_text(self,\
                       prompt: str,\
                       max_new_tokens: int = 100,\
@@ -41,7 +50,7 @@ class GenerativeAI:
         if not prompt.strip():
             return "Error: Prompt cannot be empty."
         try:
-            inputs = self._tokenizer(prompt, return_tensors="pt").to(self._device)
+            inputs = self.get_input_tokens(prompt)
             output_ids = self._model.generate(
                 **inputs,
                 max_new_tokens=max_new_tokens,
