@@ -3,6 +3,7 @@ from views.factories.abstract.icanvas_concrete import ICanvas
 class LinearRegressionCanvas(ICanvas):
     def __init__(self):
         super().__init__()
+        self.button.setText("Run Linear Regression Demo")
         self.button.clicked.connect(self.__runDemo)
 
     def __runDemo(self):

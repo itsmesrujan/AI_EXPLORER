@@ -32,12 +32,15 @@ _Supporting packages(so far):_
 |   cv2             | Simplifies computer vision tasks                              | `pip3 install cv`             |
 |   matplotlib      | Creating static, animated, and interactive visualizations     | `pip3 install matplotlib`     |
 |   nltk            | Natural Language Toolkit: for natural language processing     | `pip3 install nltk`           |
+|   numpy           | Supports random operations, ML/DS/DL/Scientific computations  | `pip3 install numpy`          |
 |   PySide6         | Provides access to the complete Qt 6.0+ framework             | `pip3 install PySide6`        |
 |   pytest          | Supports unit testing                                         | `pip3 install pytest`         |
 |   scikit-learn    | Supports machine learning demonstrations                      | `pip3 install scikit-learn`   |
 |   torch           | Supports deep neural networks and tensor computation          | `pip3 install torch`          |
 |   transformers    | Acts as the model-definition framework                        | `pip3 install transformers`   |
 |   qdarkstyle      | Supports to fetch dark/light style sheet for Qt applications  | `pip3 install qdarkstyle`     |
+
+_Note:_ numpy should be a part of python's standard framework.
 
 For more information on packages, refer to [pypi site](https://pypi.org/).
 

@@ -94,3 +94,8 @@
 - pytest workflow partial issue fix
 - Deepdive mark down draft file update
 - Test case updates
+
+## [0.12.1] - 13-DEC-2025
+- Python CI pipeline issue fix
+- Demo button label fix
+- python package detail update

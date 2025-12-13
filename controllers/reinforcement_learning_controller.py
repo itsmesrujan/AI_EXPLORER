@@ -23,8 +23,3 @@ class ReinforcementLearningController:
         bounds = [-1.5, -0.5, 0.5, 1.5, 2.5]
         norm = colors.BoundaryNorm(bounds, cmap.N)
         return grid, cmap, norm
-
-    # def train_agent(self, episodes):
-    #     return self.__reinforcementLearning_instance.train_agent(episodes)
-    # def get_policy(self):
-    #     return self.__reinforcementLearning_instance.get_learned_policy()
