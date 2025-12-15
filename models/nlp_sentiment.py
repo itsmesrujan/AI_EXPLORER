@@ -6,7 +6,7 @@ class NLPSentiment:
     def __init__(self):
         'model class for natural language processing sentiment analysis'
         # Ensure VADER is downloaded
-        self.__download_vader()
+        self._download_vader()
         self._analyzer = None
         try:
             self._analyzer = SentimentIntensityAnalyzer()
@@ -14,7 +14,7 @@ class NLPSentiment:
             print(f"Error while initializing SentimentIntensityAnalyzer: {e}")
             self._analyzer = None
 
-    def __download_vader(self):
+    def _download_vader(self):
         try:
             nltk.data.find('sentiment/vader_lexicon')
         except:
@@ -33,9 +33,13 @@ class NLPSentiment:
                 ssl._create_default_https_context = _create_unverified_https_context
             nltk.download('vader_lexicon')
 
-    def get_polarity_scores(self, text):
+    def get_sentiment_score(self, text):
+        return str(self._get_polarity_scores(text))
+
+    def _get_polarity_scores(self, text):
         try:
-            return str(self._analyzer.polarity_scores(text))
+            return self._analyzer.polarity_scores(text)
         except Exception as e:
-            print(f"Error while getting polarity scores: {e}")
-            return 'Error analyzing sentiment.'
+            raise e
+            # print(f"Error while getting polarity scores: {e}")
+            # return 'Error analyzing sentiment.'

@@ -65,16 +65,3 @@ class GenerativeAI:
             return self._tokenizer.decode(output_ids[0], skip_special_tokens=True)
         except Exception as e:
             return f"Error during text generation: {e}"
-
-    # Expose tokenizer and model safely (if needed)
-    # @property
-    # def tokenizer(self):
-    #     return self._tokenizer
-    
-    # @property
-    # def model(self):
-    #     return self._model
-    
-    # @property
-    # def device(self):
-    #     return self._device

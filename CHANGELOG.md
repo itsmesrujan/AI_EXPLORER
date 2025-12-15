@@ -99,3 +99,6 @@
 - Python CI pipeline issue fix
 - Demo button label fix
 - python package detail update
+
+## [0.12.2] - 15-DEC-2025
+- NLP sentiment test case update
