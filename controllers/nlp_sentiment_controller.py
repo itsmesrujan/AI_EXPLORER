@@ -7,4 +7,4 @@ class NLPSentimentController:
         self.__NLPSentiment_instance = NLPSentiment()
 
     def get_scores(self, text):
-        return self.__NLPSentiment_instance.get_polarity_scores(text)
+        return self.__NLPSentiment_instance.get_sentiment_score(text)

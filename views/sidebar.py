@@ -16,13 +16,12 @@ class Sidebar(QWidget):
             "NLP Sentiment",
             "Computer Vision Edges",
             "K-Means Clustering",
-            "Generative AI"
+            "Generative AI",
+            "Reinforcement Learning"
         ]
         for c in concepts:
             button = CustomPushButton(c)
             # [TODO] Style the buttons to be transparent background
-            # button.setStyleSheet("text-background-color: transparent;")
-            button.setStyleSheet("background-color: transparent; border: none; text-align: center; padding: 10px;")
             button.clicked.connect(lambda _, x=c: self.selection_changed.emit(x))
             layout.addWidget(button)
         if default_selection:

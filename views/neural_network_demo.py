@@ -7,7 +7,7 @@ class NeuralNetworkDemo(QWidget):
         layout = QVBoxLayout()
         self.setLayout(layout)
         self.__label = QLabel("Click to train a neural network on XOR problem.")
-        self.__button = CustomPushButton("Train Network")
+        self.__button = CustomPushButton("Run Train Network Demo")
         self.__button.clicked.connect(self.train_neural_network)
         layout.addWidget(self.__label)
         layout.addWidget(self.__button)

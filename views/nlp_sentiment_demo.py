@@ -8,7 +8,7 @@ class NLPSentimentDemo(QWidget):
         layout = QVBoxLayout()
         self.setLayout(layout)
         self.__input_box = QTextEdit()
-        self.__button = CustomPushButton("Analyze Sentiment")
+        self.__button = CustomPushButton("Run Analyze Sentiment Demo")
         self.__result_label = QLabel("Sentiment score will appear here.")
         self.__button.clicked.connect(self.analyze)
         layout.addWidget(self.__input_box)

@@ -14,7 +14,8 @@ CONCEPT_INFO = {
             "NLP Sentiment: Analyzing customer reviews.",
             "Computer Vision Edges: Detecting edges in images.",
             "K-Means Clustering: Market segmentation.",
-            "Generative AI: Text generation."
+            "Generative AI: Text generation.",
+            "Reinforcement Learning: Game playing AI."
         ]
     },
     "Linear Regression": {

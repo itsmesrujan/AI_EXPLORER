@@ -3,6 +3,7 @@ from views.factories.abstract.icanvas_concrete import ICanvas
 class ClassificationCanvas(ICanvas):
     def __init__(self):
         super().__init__()
+        self.button.setText("Run Decision Tree Classification Demo")
         self.button.clicked.connect(self.__runDemo)
 
     def __runDemo(self):

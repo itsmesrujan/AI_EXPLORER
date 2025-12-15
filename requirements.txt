@@ -1,6 +1,7 @@
-cv2
+cv
 matplotlib
 nltk
+numpy
 PySide6
 pytest
 scikit-learn

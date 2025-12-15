@@ -87,3 +87,18 @@
 ## [0.11.1] - 07-DEC-2025
 - Fix of module inclusion file in controllers
 - Python cache file removal from repo
+
+## [0.12.0] - 12-DEC-2025
+- Reinforcement learning update
+- Ignore file update
+- pytest workflow partial issue fix
+- Deepdive mark down draft file update
+- Test case updates
+
+## [0.12.1] - 13-DEC-2025
+- Python CI pipeline issue fix
+- Demo button label fix
+- python package detail update
+
+## [0.12.2] - 15-DEC-2025
+- NLP sentiment test case update

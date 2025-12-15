@@ -2,6 +2,7 @@ from views.factories.model_factory import ModelFactory
 from views.factories.abstract.classification_factory import ClassificationFactory
 from views.factories.abstract.linear_regression_factory import LinearRegressionFactory
 from views.factories.abstract.kmeans_factory import KMeanFactory
+from views.factories.abstract.reinforcement_learning_factory import ReinforcementLearningFactory
 
 from views.neural_network_demo import NeuralNetworkDemo
 from views.nlp_sentiment_demo import NLPSentimentDemo
@@ -15,6 +16,8 @@ def register_demo_models():
                                 ClassificationFactory().create_canvas())
     ModelFactory.register_model("K-Means Clustering",\
                                 KMeanFactory().create_canvas())
+    ModelFactory.register_model("Reinforcement Learning",\
+                                ReinforcementLearningFactory().create_canvas())
     ModelFactory.register_model("Neural Network", NeuralNetworkDemo())
     ModelFactory.register_model("NLP Sentiment", NLPSentimentDemo())
     ModelFactory.register_model("Computer Vision Edges", VisionEdgeDetectionDemo())

@@ -1,5 +1,7 @@
 __AI-Powered AI Concept Explorer - A Desktop Based Application__
 
+This application is developed to demonstrate various AI/ML concepts.
+
 _[More detail specification including code/technical documentation is in progress]_
 
 __Instructions to run__
@@ -30,6 +32,7 @@ _Supporting packages(so far):_
 |   cv2             | Simplifies computer vision tasks                              | `pip3 install cv`             |
 |   matplotlib      | Creating static, animated, and interactive visualizations     | `pip3 install matplotlib`     |
 |   nltk            | Natural Language Toolkit: for natural language processing     | `pip3 install nltk`           |
+|   numpy           | Supports random operations, ML/DS/DL/Scientific computations  | `pip3 install numpy`          |
 |   PySide6         | Provides access to the complete Qt 6.0+ framework             | `pip3 install PySide6`        |
 |   pytest          | Supports unit testing                                         | `pip3 install pytest`         |
 |   scikit-learn    | Supports machine learning demonstrations                      | `pip3 install scikit-learn`   |
@@ -37,4 +40,8 @@ _Supporting packages(so far):_
 |   transformers    | Acts as the model-definition framework                        | `pip3 install transformers`   |
 |   qdarkstyle      | Supports to fetch dark/light style sheet for Qt applications  | `pip3 install qdarkstyle`     |
 
+_Note:_ numpy should be a part of python's standard framework.
+
 For more information on packages, refer to [pypi site](https://pypi.org/).
+
+>Note: I am developing this application out of my curiosity towards AI. If anyone is willing to contribute, then I would suggest to raise a PR / reach out to me via email.
