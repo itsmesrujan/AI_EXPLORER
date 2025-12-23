@@ -1,25 +1,24 @@
 from models.reinforcement_learning import ReinforcementLearning
 
-class ReinforcementLearningController:
+class ReinforcementLearningController():
     def __init__(self):
         'Controller class for Reinforcement Learning'
-        self.__reinforcementLearning_instance = ReinforcementLearning()
+        self._reinforcementLearning_instance = ReinforcementLearning()
+        self._grid, self._cmap, self._norm = None, None, None
+        self._error_occurred, self._error_message = False, ''
+
+    def _handle_error(self, error_msg):
+        print(f"Thread error: {error_msg}")
+        self._error_occurred = True
+        self._error_message = error_msg
 
     def _get_learning_data(self):
-        from matplotlib import colors
-        self.__reinforcementLearning_instance.train()
-        path = self.__reinforcementLearning_instance.optimal_path()
-        grid = [[0] * self.__reinforcementLearning_instance.grid_size for _ in range(self.__reinforcementLearning_instance.grid_size)]
-        # mark goal
-        gx, gy = self.__reinforcementLearning_instance.goal
-        grid[gx][gy] = 2
-        # mark obstacles
-        for ox, oy in self.__reinforcementLearning_instance.obstacles:
-            grid[ox][oy] = -1
-        # mark path
-        for i, (px, py) in enumerate(path):
-            grid[px][py] = 1
-        cmap = colors.ListedColormap(['white', 'yellow', 'green', 'red'])
-        bounds = [-1.5, -0.5, 0.5, 1.5, 2.5]
-        norm = colors.BoundaryNorm(bounds, cmap.N)
-        return grid, cmap, norm
+        from controllers.controller_threads.thread_reinforcement_worker import ThreadReinforcementWorker
+        self._worker_thread_instance = ThreadReinforcementWorker(self._reinforcementLearning_instance)
+        self._worker_thread_instance.error.connect(self._handle_error)
+        self._worker_thread_instance.start()
+        # wait until thread finishes
+        self._worker_thread_instance.wait()
+        if self._worker_thread_instance is None:
+            raise RuntimeError("Thread completed but no result was produced")
+        return self._worker_thread_instance.result

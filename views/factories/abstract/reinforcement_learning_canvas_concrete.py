@@ -12,6 +12,10 @@ class ReinforcementCanvas(ICanvas):
              import ReinforcementLearningController
         reinforcement_instance = ReinforcementLearningController()
         grid, cmap, norm = reinforcement_instance._get_learning_data()
+        # Debug print
+        # print(f"Grid Type: {type(grid)}")
+        # print(f"Grid dtype:{getattr(grid, 'dtype', 'Not a numpy array')}")
+        # print(f"Grid shape:{getattr(grid, 'shape', 'No shape')}")
         # plot
         self.figure.clear()
         ax = self.figure.add_subplot(111)

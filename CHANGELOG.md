@@ -102,3 +102,7 @@
 
 ## [0.12.2] - 15-DEC-2025
 - NLP sentiment test case update
+
+## [0.13.0] - 24-DEC-2025
+- Threading support update
+- reinforcement learning tuning
